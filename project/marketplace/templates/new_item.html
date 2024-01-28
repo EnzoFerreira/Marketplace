@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <form method="post">
+            {% csrf_token %}
+                <table>
+                {{ new_item_form.as_p }}
+                </table>
+                <input type="submit" value="Create new item" class="btn btn-primary">
+        </form>
+    {% endblock %}
+</body>
+</html>
