@@ -22,7 +22,7 @@ from marketplace.views import *
 
 
 urlpatterns = [
-    path('new_item/',new_item, name='new_item'),
+    path('/new_item/',new_item, name='new_item'),
     path('csmarket/',market_view, name='weapons_list'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

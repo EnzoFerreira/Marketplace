@@ -18,10 +18,10 @@ def market_view(request):
 
 def new_item(request):
     if request.method == 'POST':
-        new_item_form = ItemForm(request.POST)
+        new_item_form = ItemForm(request.POST, request.FILES)
         if new_item_form.is_valid():
             new_item_form.save()
-            return redirect('market_index.html')
+            return redirect('weapons_list')
     else:
         new_item_form = ItemForm()
 
