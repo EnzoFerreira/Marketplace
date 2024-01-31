@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+
+        <form method="post" >
+            {% csrf_token %}
+            <div class="form-group">
+                {{ register_form.username.errors }}
+                <label>Name: </label>
+                {{ register_form.username }}
+            </div>
+            <div class="form-group">
+                {{ register_form.password1.errors }}
+                <label>Password: </label>
+                {{ register_form.password1 }}
+            </div>
+            <div class="form-group">
+                {{ register_form.password2.errors }}
+                <label>Confirm password:  </label>
+                {{ register_form.password2 }}
+            </div>
+
+            <input type="submit" value="Submit"/>
+        </form>
+
+    {% endblock %}
+</body>
+</html>

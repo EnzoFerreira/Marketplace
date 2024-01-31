@@ -19,10 +19,14 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from marketplace.views import *
+from accounts.views import *
 
 
 urlpatterns = [
     path('/new_item/',new_item, name='new_item'),
     path('csmarket/',market_view, name='weapons_list'),
+    path('register/', register_view, name="register"),
+    path('login/', login_view , name='login'),
+    path('logout/', logout_view, name='logout'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,30 @@
+from django.shortcuts import render,redirect
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+
+
+def register_view(request):
+    if request.method == "POST":
+        register_form = UserCreationForm(request.POST)
+        if register_form.is_valid():
+            register_form.save()
+            return redirect('login')
+    else:
+        register_form = UserCreationForm()
+    return render(request, 'register_screen.html',{'register_form':register_form})
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None :
+            login(request, user)
+            return redirect('weapons_list')
+    else:
+        login_form = AuthenticationForm()
+    return render(request, 'login_screen.html', {'login_form':login_form})
+
+def logout_view(request):
+    logout(request)
+    return redirect('weapons_list')

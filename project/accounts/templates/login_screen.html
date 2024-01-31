@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <form method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{ login_form.as_table }}
+        </table>
+        <input type="submit" value="login">
+    </form>
+    {% endblock %}
+</body>
+</html>
