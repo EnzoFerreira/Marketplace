@@ -94,6 +94,15 @@
         button[type="submit"]:hover {
             background-color: #108eb8;
         }
+        a {
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+        }
+
+        a:hover {
+          color: #0096c7;
+        }
       </style>
 
         <body>
@@ -104,10 +113,12 @@
           <div class="weapon-grid">
             {% if weapons %}
               {% for weapon in weapons %}
-                  <div class="weapon-card">
-                  <img src="{{ weapon.image.url }}" alt="{{weapon.skin_name}} - {{weapon.weapon_type}}">
-                  <p>{{ weapon.skin_name }} - R$ {{ weapon.price }}</p>
-                  </div>
+                <a href="{% url 'weapon_details' weapon.id %}">
+                    <div class="weapon-card">
+                    <img src="{{ weapon.image.url }}" alt="{{weapon.skin_name}} - {{weapon.weapon_type}}">
+                    <p>{{ weapon.skin_name }} - R$ {{ weapon.price }}</p>
+                    </div>
+                </a>
                 {% endfor %}
             {% else %}
                 <p>No results found</p>
