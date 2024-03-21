@@ -78,6 +78,22 @@
     a {
       text-decoration: none !important;
     }
+    .buttons-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background-color: #0096c7;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
   </style>
   <div class="car-card">
       <img src="{{ object.image.url }}" alt="skin showcase">
@@ -85,4 +101,11 @@
       <p>{{ object.description }}</p>
       <p><strong>Price:</strong> R$ {{ object.price }}</p>
   </div>
+  {% if user.is_authenticated %}
+  <div class="buttons-container">
+    <a href="{% url 'weapon_edit' pk=object.pk %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'weapon_delete' pk=object.pk %}" class="btn btn-danger">Delete</a>
+  </div>
+  {% endif %}
 {% endblock %}
+

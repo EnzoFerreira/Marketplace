@@ -3,9 +3,12 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from marketplace.models import *
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from marketplace.forms import ItemForm
 from django.views import View
-from django.views.generic import ListView,CreateView,DetailView
+from django.urls import reverse_lazy
+from django.views.generic import *
 
 class WeaponsListView(ListView):
     model = Weapon
@@ -18,6 +21,7 @@ class WeaponsListView(ListView):
         if search:
             weapons = weapons.filter(skin_name__icontains=search)
         return weapons
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class new_market_item(CreateView):
     model = Weapon
     form_class = ItemForm
@@ -27,3 +31,16 @@ class new_market_item(CreateView):
 class Weapon_View(DetailView):
     model = Weapon
     template_name = 'weapon_view.html'
+
+class Weapon_edit(UpdateView):
+    model = Weapon
+    form_class = ItemForm
+    template_name = 'weapon_edit.html'
+    
+    def get_success_url(self):
+        return reverse_lazy('weapon_details', kwargs={'pk': self.object.pk})
+
+class Weapon_delete(DeleteView):
+    model = Weapon
+    template_name = 'weapon_delete.html'
+    success_url = '/csmarket/'
