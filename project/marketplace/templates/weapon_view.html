@@ -21,8 +21,8 @@
     }
 
     .car-card img {
-      width: 100%;
-      height: 200px;
+      width: 400px;
+      height: 100%;
       object-fit: cover;
     }
 
@@ -97,13 +97,16 @@
   </style>
   <div class="car-card">
       <img src="{{ object.image.url }}" alt="skin showcase">
-      <h2>{{ object.skin_name }} | {{ object.weapon_type }}</h2>
+      <h2>{{ object.skin_name }} | {{ object.skin_type }}</h2>
+      <h3>{{ object.weapon_type }}</h3>
+      <p><strong>{{ object.exterior }}</strong> | <strong>Float: </strong>{{ object.float }}</p>
       <p>{{ object.description }}</p>
       <p><strong>Price:</strong> R$ {{ object.price }}</p>
   </div>
   {% if user.is_authenticated %}
   <div class="buttons-container">
     <a href="{% url 'weapon_edit' pk=object.pk %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'weapons_list' %}" class="btn btn-primary">Go Back</a>
     <a href="{% url 'weapon_delete' pk=object.pk %}" class="btn btn-danger">Delete</a>
   </div>
   {% endif %}
