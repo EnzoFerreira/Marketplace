@@ -9,7 +9,7 @@ from accounts.views import *
 urlpatterns = [
     path('csmarket/',WeaponsListView.as_view(), name='weapons_list'),
     path('register/', register_view, name="register"),
-    path('/new_item/',new_market_item.as_view(), name='new_item'),
+    path('new_item/',new_market_item.as_view(), name='new_item'),
     path('login/', login_view , name='login'),
     path('logout/', logout_view, name='logout'),
     path('csmarket/<int:pk>/update/', Weapon_edit.as_view(), name='weapon_edit'),
