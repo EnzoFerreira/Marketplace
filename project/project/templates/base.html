@@ -72,18 +72,15 @@
 <body>
   <header>
     <nav>
-      <ul>
+      <ul>  
+          <li><a href="{% url 'weapons_list' %}">CS Market</a></li>
         {% if user.is_authenticated %}
-          <li>Hi! {{ user.username }}</li>
           <li><a href="{% url 'new_item' %}">List a new item</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
         {% endif %}
         {% if not user.is_authenticated %}
           <li><a href="{% url 'login' %}">Login</a></li>
           <li><a href="{% url 'register' %}">Create an account</a></li>
-        {% endif %}    
-        <li><a href="{% url 'weapons_list' %}">CS Market</a></li>
-        {% if user.is_authenticated %}
-          <li><a href="{% url 'logout' %}">Logout</a></li>
         {% endif %}
       </ul>
     </nav>
