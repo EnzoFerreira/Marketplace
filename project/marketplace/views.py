@@ -16,10 +16,13 @@ class WeaponsListView(ListView):
     context_object_name = 'weapons'
 
     def get_queryset(self):
-        weapons = super().get_queryset().order_by('skin_name')
+        weapons = super().get_queryset().order_by('weapon_name')
         search = self.request.GET.get('Search')
         if search:
-            weapons = weapons.filter(skin_name__icontains=search)
+            if weapons.filter(weapon_name__icontains=search):
+                weapons = weapons.filter(weapon_name__icontains=search)
+            if weapons.filter(skin_type__icontains=search):
+                weapons = weapons.filter(skin_type__icontains=search)
         return weapons
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class new_market_item(CreateView):

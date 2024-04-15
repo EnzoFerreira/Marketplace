@@ -7,8 +7,8 @@
     <style>
         .weapon-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 20px;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 60px 15px;
           margin: 0 auto;
           max-width: 1200px;
           padding: 20px;
@@ -20,7 +20,6 @@
           border-radius: 10px;
           overflow: hidden;
           text-align: center;
-          transition: all 0.3s ease;
         }
     
         .weapon-card:hover {
@@ -32,7 +31,6 @@
         .weapon-card img {
           width: 280px;
           height: 100%;
-          object-fit: cover;
         }
     
         .weapon-card h3 {
@@ -115,8 +113,8 @@
               {% for weapon in weapons %}
                 <a href="{% url 'weapon_details' weapon.id %}">
                     <div class="weapon-card">
-                    <img src="{{ weapon.image.url }}" alt="{{weapon.skin_name}} - {{weapon.weapon_type}}">
-                    <p>{{ weapon.skin_name }} - R$ {{ weapon.price }}</p>
+                    <img src="{{ weapon.image.url }}" alt="{{weapon.weapon_name}} - {{weapon.weapon_type}}">
+                    <p>{{ weapon.weapon_name }} - R$ {{ weapon.price }}</p>
                     </div>
                 </a>
                 {% endfor %}
