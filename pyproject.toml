@@ -9,6 +9,9 @@ readme = "README.md"
 python = "^3.11"
 django = "^5.0.1"
 pillow = "^10.2.0"
+requests = "^2.31.0"
+bs4 = "^0.0.2"
+lxml = "5.0.0"
 
 
 [build-system]
