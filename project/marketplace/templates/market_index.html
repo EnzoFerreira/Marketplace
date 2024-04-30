@@ -113,7 +113,11 @@
               {% for weapon in weapons %}
                 <a href="{% url 'weapon_details' weapon.id %}">
                     <div class="weapon-card">
+                    {% if weapon.image %}
                     <img src="{{ weapon.image.url }}" alt="{{weapon.weapon_name}} - {{weapon.weapon_type}}">
+                    {% else %}
+                    <p>Image not associated</p>
+                    {% endif %}
                     <p>{{ weapon.weapon_name }} - R$ {{ weapon.price }}</p>
                     </div>
                 </a>
