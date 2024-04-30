@@ -8,12 +8,12 @@
 
 ![Screenshot from 2024-04-05 12-39-50](https://github.com/EnzoFerreira/Marketplace/assets/141665336/23dd1b30-3460-4755-89a7-0262814263eb)
 
-README
-<!--DJANGO-->
-SECRET_KEY='django-insecure-jat8stmf-89aj+mtlutdq!b(jj#c3v*09e=y^)lq06^awd--+z'
+#README
+#DJANGO#
+SECRET_KEY=''
 DEBUG=true
 
-<!--DATABASE-->
-DATABASE_URL=postgres://postgres:postgres@localhost:5432/marketplace
-DATABASE_URL_SC=postgres://postgres:postgres@localhost:5432/localhost
-DATABASE_OPTIONS=-c search_path=public
+#DATABASE#
+DATABASE_URL=''
+DATABASE_URL_SC=''
+DATABASE_OPTIONS=-c search_path=''
