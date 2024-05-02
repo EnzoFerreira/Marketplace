@@ -9,7 +9,7 @@
 ![Screenshot from 2024-04-05 12-39-50](https://github.com/EnzoFerreira/Marketplace/assets/141665336/23dd1b30-3460-4755-89a7-0262814263eb)
 
 #README
-#DJANGO#
+#DJANGO
 SECRET_KEY=''
 DEBUG=true
 
