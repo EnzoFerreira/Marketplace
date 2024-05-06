@@ -1,21 +1,126 @@
 <html lang="en">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+        main{
+            background-image: url('https://soilborn.org/wp-content/uploads/2023/12/Soil-Born-Farms-October-2023-by-Kara-Chin.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: auto;
+            height: auto;
+        }
+        table{
+            font-family: Lato;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            width: auto;
+            height: auto;
+            padding-top: 20px;
+            width: auto;
+            height: auto;
+        }
+        table tr {
+            font-family: Lato;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            width: auto;
+            height: auto;
+            padding-top: 40px;
+            font-family: Lato;
+            width: auto;
+            font-weight: 100;
+            font-size: 16px;
+            color: #ffffff;
+            background: linear-gradient(90deg, #13d664 0%, #1a4b14 100%);
+            padding: 10px;
+            margin:10px;
+            transition: 1000ms;
+            transform: translateY(0);
+            text-transform: uppercase;
+            border-radius: 50px 50px;
+        }
+        table tr td{
+            font-size: 12px;
+            border-width: 1px;
+            border-color: #CCCCCC;
+            border-radius: 50% 50%;
+            background-color: #FFFFFF;
+            color: #000000;
+            border-style: solid;
+            border-radius: 0px;
+        }
+        .input{
+            display: flex;
+            justify-content: center; 
+            width: auto;
+            padding:12px;
+        }
+        .button{
+            font-family: Lato;
+            width: auto;
+            font-weight: 100;
+            font-size: 16px;
+            color: #ffffff;
+            background: linear-gradient(90deg, #13d664 0%, #1a4b14 100%);
+            padding: 10px 30px;
+            border-radius: 50px 50px;
+            transition: 1000ms;
+            transform: translateY(0);
+            text-transform: uppercase;
+        }
+        .button:hover{
+            transition: 100000ms;
+            padding: 10px 50px;
+            transform: translateY(-0px);
+            background: linear-gradient(90deg, #13d664 0%, #1a4b14 100%);
+            color: #ffffff;
+        }
+        p.redirect {
+            font-family: Lato;
+            width: auto;
+            font-weight: 100;
+            font-size: 12.5px;
+            color: #ffffff;
+            padding: 12px;
+            transition: 1000ms;
+            transform: translateY(0);
+            text-transform: uppercase;
+            text-align: center;
+        }
+        form.form{
+            background-color: rgba(237, 237, 237, 0.6);
+            display: block;
+            border-radius: 15px;
+            -moz-border-radius: 10px 10px 10px 10px;
+            -webkit-border-radius: 10px 10px 10px 10px;
+            border: 3px outset #000000;
+            padding: 10%;
+            margin:20%;
+        }
+    </style>    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login page</title>
 </head>
+{% extends "base.html" %}
 <body>
-    {% extends "base.html" %}
-
     {% block content %}
-    <form method="POST">
-        {% csrf_token %}
+        <div class="input">
+            <form method="post" class="form">
 
-        <table>
-            {{ login_form.as_table }}
-        </table>
-        <input type="submit" value="login">
-    </form>
+                {% csrf_token %}
+                <table>
+                    {{ login_form.as_table }}
+                </table>
+                <div class="input">
+                    <input class="button" type="submit" value="login">
+                </div>
+                <p class="redirect">Dont have an account? register <a href="{% url 'register' %}">here</a><p/>
+            </form> 
+        </div>
     {% endblock %}
 </body>
 </html>

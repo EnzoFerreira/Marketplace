@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{% endblock %}</title>
   <style>
+    main{
+      width: auto;
+      height: auto;
+    }
     body {
         font-family: 'Open Sans', sans-serif;
         background-color: #f7f7f7;
@@ -14,25 +18,25 @@
     }
 
     header {
-        background-color: #0096c7;
+        background-color: linear-gradient(90deg, #2239e3 0%, #b858bd 100%);
         color: #fff;
         text-align: center;
     }
 
     footer {
-        background-color: #ccc;
-        color: #333;
+        background: linear-gradient(90deg, #147c43 0%, #000000 100%);
+        color: #dbdbdb;
         padding: 34.5px;
         text-align: center;
-        margin-top: 50px;
     }
 
     nav {
-        background-color: #0096c7;
+        background: linear-gradient(90deg, #147c43 0%, #000000 100%);
         color: #fff;
         height: 50px;
         display: flex;
         justify-content: space-between;
+        margin-right:auto;
         align-items: center;
     }
 
@@ -88,11 +92,12 @@
 
   <main>
     {% block content %}
+    
     {% endblock %}
   </main>
 
   <footer>
-    <p>&copy; 2023 CaixaDoExtra</p>
+    <p>&copy; Scicrop - EnzoRaci</p>
   </footer>
 </body>
 </html>
